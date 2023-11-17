@@ -8,12 +8,8 @@ const app = Vue.createApp({
   methods: {
     outputGoal: () => {
       const randomNumber = Math.random();
-      console.log('random number: ', randomNumber);
-      if (randomNumber < 0.5) {
-        return 'Learn Vue!';
-      } else {
-        return 'Master Vue!';
-      }
+      console.log('random number: ', randomNumber);      
+      return (randomNumber < 0.5) ? 'Learn Vue!' : 'Master Vue!';
     }
   }
 }); // end of const app = Vue.createApp({
