@@ -3,19 +3,21 @@ const app = Vue.createApp({
     return {
       counter: 0,
       name: '',
+      lastName: '',
       fullname: ''
     };
   },
   watch: {
     name(value, oldValue) {
-      console.log('watching!');
+      console.log('watching name!');
+      value = value.trim();      
+      this.fullname = value === '' ? '' : `${value} ${this.lastName}`;
+    },
+    lastName(value) {
+      console.log('watching lastName!');
+      console.log('watching lastName!');
       value = value.trim();
-      oldValue = oldValue.trim();
-      console.log(`old value: ${oldValue}`);
-      console.log(`new value: ${value}`);
-
-      let name = value;
-      this.fullname = name === '' ? '' : name + ' Gomez';
+      this.fullname = value === '' ? '' : `${this.name} ${value}`;
     }
   },
   computed: {
@@ -47,6 +49,7 @@ const app = Vue.createApp({
     },
     resetInput() {
       this.name = '';
+      this.lastName = '';
     }
   }
 });
