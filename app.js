@@ -11,10 +11,17 @@ const app = Vue.createApp({
     counter(value) {
       console.log('watching counter!');
       this.counter = value < 0 ? 0 : value;
-      const eventsThis = this;
+      
+      // const that = this;
+      // if (value > 50) {
+      //   setTimeout(function() {
+      //     that.counter = 0;
+      //   }, 2000);
+      // }
+
       if (value > 50) {
-        setTimeout(function() {
-          eventsThis.counter = 0;
+        setTimeout(() => {
+          this.counter = 0;
         }, 2000);
       }
     }
