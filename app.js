@@ -6,6 +6,12 @@ const app = Vue.createApp({
     };
   },
   methods: {
+    outputFullName() {
+      console.log('outputting full name!');
+      let name = this.name.trim();
+      name = name === '' ? '' : name + ' Gomez';
+      return name;
+    },
     setName(event, lastName) {
       this.name = event.target.value;
     },
