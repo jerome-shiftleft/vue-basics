@@ -4,29 +4,30 @@ const app = Vue.createApp({
       counter: 0,
       name: '',
       lastName: '',
-      fullname: ''
+      //fullname: ''
     };
   },
   watch: {
-    name(value, oldValue) {
-      console.log('watching name!');
-      value = value.trim();      
-      this.fullname = value === '' ? '' : `${value} ${this.lastName}`;
-    },
-    lastName(value) {
-      console.log('watching lastName!');
-      console.log('watching lastName!');
-      value = value.trim();
-      this.fullname = value === '' ? '' : `${this.name} ${value}`;
-    }
+    // name(value, oldValue) {
+    //   console.log('watching name!');
+    //   value = value.trim();      
+    //   this.fullname = value === '' ? '' : `${value} ${this.lastName}`;
+    // },
+    // lastName(value) {
+    //   console.log('watching lastName!');
+    //   console.log('watching lastName!');
+    //   value = value.trim();
+    //   this.fullname = value === '' ? '' : `${this.name} ${value}`;
+    // }
   },
   computed: {
-    // fullname() {
-    //   console.log('full name!');
-    //   let name = this.name.trim();
-    //   name = name === '' ? '' : name + ' Gomez';
-    //   return name;
-    // }
+    fullname() {
+      console.log('computed full name!');
+      let name = this.name.trim();
+      let lastName = this.lastName.trim();
+      let fullname = `${name} ${lastName}`;
+      return fullname;
+    }
   },
   methods: {
     outputFullName() {
