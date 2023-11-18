@@ -8,6 +8,16 @@ const app = Vue.createApp({
     };
   },
   watch: {
+    counter(value) {
+      console.log('watching counter!');
+      this.counter = value < 0 ? 0 : value;
+      const eventsThis = this;
+      if (value > 50) {
+        setTimeout(function() {
+          eventsThis.counter = 0;
+        }, 2000);
+      }
+    }
     // name(value, oldValue) {
     //   console.log('watching name!');
     //   value = value.trim();      
