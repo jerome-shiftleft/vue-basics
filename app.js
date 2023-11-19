@@ -8,7 +8,7 @@ const app = Vue.createApp({
   },
   computed: {
     boxAClasses() {
-      return { active: true}
+      return { active: this.boxASelected};
     }
   },
   methods: {
