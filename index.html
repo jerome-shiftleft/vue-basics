@@ -18,7 +18,7 @@
       <h2>My course goals</h2>
       <input v-model="goal" @keyup.enter="addGoal()" type="text" />
       <button @click="addGoal()">Add Goal</button>
-      <p v-if="goals.length === 0">
+      <p v-show="goals.length === 0">
         No goals have been added yet - please start adding some!
       </p>
       <ul v-if="goals.length === 0">
