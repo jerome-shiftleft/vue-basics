@@ -25,7 +25,14 @@
         <li>Goal</li>
       </ul>
       <ul v-else>
-        <li v-for="(goal, index) in goals" :key="index" @click="removeGoal(index)">{{ goal }}</li>
+        <li
+          v-for="(goal, index) in goals"
+          :key="goal"
+          @click="removeGoal(index)"
+        >
+          <p>{{ goal }} - {{ index }}</p>
+          <input type="text" @click.stop>
+        </li>
       </ul>
     </section>
 
