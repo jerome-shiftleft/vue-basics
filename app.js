@@ -1,24 +1,25 @@
 const app = Vue.createApp({
   data() {
     return {
-      goal: '',
+      goal: "",
       goals: [],
     };
   },
   methods: {
     addGoal() {
-      console.log('adding goal!');
-      let goal = this.goal.trim();
-      if (goal !== '') {
-        this.goals.push(this.goal);
-        console.log(this.goals);
-        this.goal = '';
+      if (this.goal.trim() !== "") {
+        const isGoalsEmpty = this.goals.length === 0;
+
+        let id = isGoalsEmpty ? 0 : this.goals[this.goals.length - 1].id + 1;
+
+        this.goals.push({ id, title: this.goal });
+        this.goal = "";
       }
     },
     removeGoal(index) {
       this.goals.splice(index, 1);
-    }
-  }
+    },
+  },
 });
 
-app.mount('#user-goals');
+app.mount("#user-goals");
